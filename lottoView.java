@@ -12,6 +12,11 @@ import javafx.scene.layout.VBox;
 
 
 public class lottoView extends Tab {
+	
+	int current_size = 1;
+	int i = 0;
+	final int MAX_SIZE = 5;
+	
 	public lottoView(){
 		Button generateNumbers = new Button("Click to Play!");
 		
@@ -44,6 +49,7 @@ public class lottoView extends Tab {
 		
 		
 		ArrayList<Integer> playerNumbers = new ArrayList<>();
+		 
 		
 		playerNumbers.add(0);
 		playerNumbers.add(0);
@@ -53,7 +59,23 @@ public class lottoView extends Tab {
 		
 		lottoContorller g1 = new lottoContorller();
 		g1.generateLottoNumbers();
-		g1.playerNumbers(playerNumbers);
+	
+		
+		generateNumbers.setOnAction((event) -> {
+			
+	     if(current_size <= 5) {
+				while( i < current_size) {
+					g1.displayLottoNumbers(i);
+					i++;
+					
+				}
+				current_size++;
+				
+	     }
+		   
+		    
+		});
+		
 
 	}
 
